@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="49.5dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/img_activity_myorder_back"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/nav_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/_my_order"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:id="@+id/ly_activity_myorder_v"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/ly_activity_myorder_allorder"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_myorder_allorder"
+                android:layout_width="fill_parent"
+                android:layout_height="37dp"
+                android:gravity="center"
+                android:text="@string/_all_order"
+                android:textColor="#368ff7"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/view_activity_myorder_allorder"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:background="#368ff7" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="#eeeeee" />
+
+        <LinearLayout
+            android:id="@+id/ly_activity_myorder_yes"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_myorder_yes"
+                android:layout_width="fill_parent"
+                android:layout_height="37dp"
+                android:gravity="center"
+                android:text="@string/_pay_order"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/view_activity_myorder_yes"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="#eeeeee" />
+
+        <LinearLayout
+            android:id="@+id/ly_activity_myorder_no"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_myorder_no"
+                android:layout_width="fill_parent"
+                android:layout_height="37dp"
+                android:gravity="center"
+                android:text="@string/_no_pay_order"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/view_activity_myorder_no"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_tour_myorder"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+    -->
+
+    <TextView
+        android:id="@+id/tv_activity_noorder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/_none_order"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/lv_activity_myorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="#00000000"
+        android:scrollbars="none" >
+    </ListView>
+
+</LinearLayout>

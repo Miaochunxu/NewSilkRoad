@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="49.5dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:id="@+id/img_activity_sort_goods_back"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/nav_back" />
+
+        <TextView
+            android:id="@+id/tv_activity_sort_goods_title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/_activity_sort_goods_goodslist"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/img_activity_sort_goods_shopping_car"
+            android:layout_width="30dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/btn_gouwuchaicon" />
+    </RelativeLayout>
+
+    <com.fangshuoit.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/lv_activity_sort_goods"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"
+        ptr:ptrMode="both" >
+    </com.fangshuoit.pulltorefresh.library.PullToRefreshListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_activity_sort_goods_fenlei"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/_activity_sort_goods_fenlei"
+            android:textColor="#426eb5"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:background="#e6e3e0" />
+
+        <TextView
+            android:id="@+id/tv_activity_sort_goods_paixu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/_activity_sort_goods_paixu"
+            android:textColor="#426eb5"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="30dp"
+            android:background="#e6e3e0" />
+
+        <TextView
+            android:id="@+id/tv_activity_sort_goods_chandi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/_activity_sort_goods_chandi"
+            android:textColor="#426eb5"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

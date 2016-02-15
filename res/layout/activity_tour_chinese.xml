@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="49.5dp"
+        android:background="#ffffff" >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/nav_back" />
+
+        <TextView
+            android:id="@+id/tv_activity_tour_chinese"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ima_sousuotubiao" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_tour_chinese"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp" >
+
+        <LinearLayout
+            android:id="@+id/ly_activity_tour_chinese_self"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_tour_chinese_self"
+                android:layout_width="fill_parent"
+                android:layout_height="37dp"
+                android:gravity="center"
+                android:text="@string/_self_service_tour"
+                android:textColor="#368ff7"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/view_activity_tour_chinese_self"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:background="#368ff7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_activity_tour_chinese_group"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_tour_chinese_group"
+                android:layout_width="fill_parent"
+                android:layout_height="37dp"
+                android:gravity="center"
+                android:text="@string/_group_tour"
+                android:textColor="#444444"
+                android:textSize="15sp" />
+
+            <View
+                android:id="@+id/view_activity_tour_chinese_group"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

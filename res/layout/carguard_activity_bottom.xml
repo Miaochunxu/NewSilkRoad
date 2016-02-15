@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#ffffff"
+    android:orientation="horizontal" >
+
+    <!--
+         <LinearLayout
+        android:id="@+id/ly_tour"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_tour"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/btn_selvyou" />
+
+        <TextView
+            android:id="@+id/tv_tour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="主页"
+            android:textColor="#368ff7" />
+    </LinearLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/ly_mall"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_mall"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/btn_seshangcheng" />
+
+        <TextView
+            android:id="@+id/tv_mall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_sopping_city"
+            android:textColor="#368ff7" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_culture"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_culture"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/btn_unwenhua" />
+
+        <TextView
+            android:id="@+id/tv_culture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_cultrue"
+            android:textColor="#d3cec7" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_person"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/iv_person"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/btn_ungeren" />
+
+        <TextView
+            android:id="@+id/tv_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_person"
+            android:textColor="#d3cec7" />
+    </LinearLayout>
+
+</LinearLayout>

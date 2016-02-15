@@ -1,0 +1,729 @@
+/**
+ *  接口连接 loginMager/go_appfuck?tempUser.loginName=?&tempUser.loginPassword=?
+ *  接口功能 客户端登陆验证
+ *  参数：        tempUser.loginName 用户名
+ *           tempUser.loginPassword 密码
+ *  返回类型示例: {"message":"[2015-04-13 19:54:33]~用户名/密码错误\n","body":{},"code":-1} 普通密码错误
+ * 	      	 {"message":"[2015-04-13 19:55:22]miss~userName\n","body":{},"code":-1} 后台没有获取到用户名 
+ * 	         {"message":"用户登陆成功！","body":{"userId":"402882ea4c97a114014c97a2405a0001"},"code":0} 正确登陆返回用户id  （userId：用户id）
+ *           {"message":"[2015-04-13 20:02:24]你的账户已被禁用，请联系管理员\n","body":{},"code":-1} 用户被停用或者被逻辑删除
+ */
+	接口功能：客户端第三方登录验证
+	接口连接：loginMager/go_appshit?tempUser.memo=?&tempUser.reservation=?&tempUser.name=?
+	参数：	 tempUser.memo 第三方登录唯一标示 规则uid+"qq" or uid+"xl" 不能为空
+ 	  		 tempUser.reservation 第三方用户头像 可为空
+ 	  		 tempUser.name 第三方登录用户昵称 不可为空
+ 	  
+/**       接口功能：客户端注册
+ *	接口连接：DUserSimpleMager/go_appbitch?user.loginName=?&user.loginPassword=?&tempVo.reservation=?&tempVo.nickName=?
+ *	参数：        user.loginName 注册用户名  手机号不可为空
+ *	         user.loginPassword 不可为空 注册密码
+ 			 tempVo.reservation 可为空 邀请码
+ 			 tempVo.nickName  不可空 昵称
+ * 返回类型示例:  {"message":"用户注册成功！","body":{"userId":"40281b814cb856bb014cb85744710000"},"code":0} 正确登陆返回用户id  （userId：用户id）
+ * 			 {"message":"[2015-04-14 22:48:45]用户名已经存在\n","body":{},"code":-1} 用户名已存在
+ *			 {"message":"[2015-04-14 22:56:15]～添加失败！必填信息不完整！\n","body":{},"code":-1} 用户名为空，密码可为空
+ */
+/**       接口功能：修改密码
+ *	接口连接：DUserSimpleMager/go_appxixi?user.Id=?&user.loginPassword=?&idList=?
+ *	参数：        user.Id 用户名  不可为空
+ *	         loginPassword 旧密码 不可为空
+ *	         idList 新密码 不可为空
+ * 返回类型示例:  {"message":"[2015-04-16 14:33:45]用户Id或密码错误或不匹配，请联系管理员或重试！\n","body":{},"code":-1}  用户Id或密码错误或者用户Id和密码不匹配数据库
+ * 			 {"message":"修改密码成功！","body":{"userId":"1"},"code":0}  修改成功
+ * 			 {"message":"[2015-04-16 14:45:44]密码相同，请重试！\n","body":{},"code":-1}  新旧密码相同
+ *			 {"message":"[2015-04-16 14:41:37]用户Id或密码为空，请联系管理员或重试！\n","body":{},"code":-1} 用户Id为空
+ */
+
+/**       接口功能：客户端预览个人中心
+ *	接口连接：DUserSimpleMager/go_appInfo?tempVo.id
+ *	参数：        tempVo.id 是DUserSimple的主键id
+ * 返回类型示例: {
+    "message": "success",
+    "body": {
+        "level": 1,
+        "shopNum": "2",
+        "orderNum": "0",
+        "nickName":"测试账号2",
+        "photo": "config/icon108x108.png",
+        "collNum": "0"
+    },
+    "code": 0
+} 
+ */
+ 
+ /**       接口功能：客户端修改用户信息
+ *	接口连接：DUserSimpleMager/go_appInUp?tempVo.**=?
+ *	参数：        tempVo 是DUserSimple的对象
+ *	       tempVo.id 非空，必须传递过来
+ *		         然后将要修改的信息传过来
+ *   
+*/
+
+/**
+ *  接口连接 VArea/go_appArea
+ *  接口功能 :客户端选择地区接口验证
+ *  返回类型示例: {
+    "message": "SUCCESS",
+    "body": [
+        {
+            "id": 1,
+            "name": "长安",
+            "selfId": "null"
+        },
+        ...
+        {
+            "id": 5,
+            "name": "哈密",
+            "selfId": 3
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接 QiniuMager/go_appGetUpToken
+ *  接口功能 :客户端获取七牛上传凭证
+ *  返回类型示例: {
+    "uptoken": "U_IeVng81xznbiHzIun7gv77DtRsIu7MPSD6Lcdh:3aT6EoCaoKKrW5luIK6Cn2nRKdk=:eyJzY29wZSI6InhpbnNpY2hvdXpoaWx1IiwiZGVhZGxpbmUiOjE0MzY4NDA3ODh9",
+	"url":"http://7xi7ke.com2.z0.glb.qiniucdn.com/"
+}
+ */
+ 
+ /**   提醒：首页(旅游)接口先预留,后期可能会需要用到
+ *  接口连接  MarketAppMager/go_appHomeListView?idList=?&&typeId=?&&num=?
+ *  参数：       idList    地区Id   非空
+ *		   typeId   栏目商品类型       非空
+ *         num      显示数量       非空
+ *  接口功能 :客户端首页推荐栏(多个显示的栏目)显示数据(罗列出选择的某个地区其相应类型的商品（并且商品热度按规定数量从上至下排列）)
+ *		注：类型id已经指定(如独家推荐,旅游向导等这类商品类型),后台已经告诉客户端,传参只需关心要显示的数量和地区Id
+ *  返回类型示例: {
+    "message": "数据获取成功",
+    "body": [
+        {
+            "id": "402880eb4d7945a0014d7a9952b40001",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cjtc11ngn7l31u931rf43o.jpg",
+            "name": "测试商品3",
+            "jians": "方硕食品有限公司"
+        },
+        {
+            "id": "402880eb4d891c9d014d8999b4410001",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob3vu96l0ed11k401ra71nibu.jpg",
+            "name": "测试一个商品",
+            "jians": "方硕食品有限公司"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /** 提醒：首页(旅游)接口先预留,后期可能会需要用到
+ *  接口连接  MarketAppMager/go_appHomeListViewOne?idList=?
+ *  参数：       idList 商品Id   非空
+ *  接口功能 :客户端推首页荐栏(多个显示的栏目)点击某一个商品拉取其所有数据
+ *  返回类型示例: {
+    "message": "数据获取成功",
+    "body": [
+        {
+            "ifSea": 0,
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lbgdfq61hg3r6m1h6r1n3o2168.png",
+            "ifTop": 1,
+            "state": 0,
+            "creatTime": "May 15, 2015 6:21:59 PM",
+            "jians": "网盘发布的第一个商品，大家快来看看吧",
+            "id": "402880eb4d57180b014d57184b010001",
+            "selNo": 0,
+            "ifComment": 1,
+            "sorter": 0,
+            "name": "第一个测试商品",
+            "merchantName": "宁夏中宁枸杞",
+            "merchantId": "4028b8814c9bb303014c9bb513060001",
+            "language": 0,
+            "photoUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lbgdfq61hg3r6m1h6r1n3o2168.png;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lbgdfq787s5k6ml718vjgu79.png;"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appMarketListView?idList=?&&typeId=?&&num=?
+ *  参数：       idList    地区Id   非空
+ *		   typeId   栏目商品类型       非空
+ *         num      显示数量       非空
+ *  接口功能 :客户端商城推荐栏(多个显示的栏目)显示数据(罗列出选择的某个地区其相应类型的商品（并且商品热度按规定数量从上至下排列）)
+ *		注：类型id已经指定(如特产推荐,独家推荐等这类商品类型),后台已经告诉客户端,传参只需关心要显示的数量和地区Id
+ *      注：该接口和首页推荐栏接口(go_appHomeListView)相比,多了商品-属性的最低价格(客户端要求首页推荐栏和商城推荐栏显示有差异)
+ *  返回类型示例: {
+    "message": "数据获取成功",
+    "body": [
+        {
+            "id": "402880eb4d7945a0014d7a9952b40001",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cjtc11ngn7l31u931rf43o.jpg",
+            "name": "测试商品3",
+            "jians": "方硕食品有限公司"
+            "price":"45.00"
+        },
+        {
+            "id": "402880eb4d891c9d014d8999b4410001",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob3vu96l0ed11k401ra71nibu.jpg",
+            "name": "测试一个商品",
+            "jians": "方硕食品有限公司"
+            "price":"50.00"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appMarketPush
+ *  参数：      无
+ *  接口功能 :客户端商城推荐栏(单个显示的栏目)推送4类商品,找出4类推荐栏中每一类的最热的的商品（每类一个）
+ *  返回类型示例:{
+    "message": "SUCCESS",
+    "body": [
+        {
+            "id": "402880eb4d57180b014d57184b010001",
+            "typeName": "每日推荐",       
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lbgdfq61hg3r6m1h6r1n3o2168.png",
+            "name": "第一个测试商品",
+            "typeId": "402880f94d8e61da014d8e63371d0001"
+        },
+        {
+            "id": "402880eb4d746d93014d746dcbd00001",
+            "typeName": "每日特卖",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lo83cgm1jbgf6rg4vjofql7a.jpg",
+            "name": "测试的第二个中文商品",		  
+            "typeId": "402880f94d8e61da014d8e63c7a10003"
+        },
+        {
+            "id": "402880eb4d7945a0014d7a9952b40001",
+            "typeName": "每日折扣",        
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cjtc11ngn7l31u931rf43o.jpg",
+            "name": "测试商品3",
+            "typeId": "402880f94d8e61da014d8e6473a10005"
+        },
+        {
+            "id": "402880eb4d891c9d014d8999b4410001",
+            "typeName": "新品推荐",      
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob3vu96l0ed11k401ra71nibu.jpg",
+            "name": "测试一个商品",
+            "typeId": "402880f94d8e61da014d8e64ebd10007"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appMarketPushOneIn?typeId=?&&num=?&&location=?
+ *  接收参数：类型编号(typeId),num(接收数量),location(起始位置)
+ *  接口功能 :客户端商城推荐栏(单个显示的栏目)点击某一个商品拉取该类型商品规定数量商品列表
+ *  返回类型示例:{
+    "message": "SUCCESS",
+    "body": [
+        {
+            "id": "ff8080814d930238014d9304ec250001",
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg",
+            "price": "0.00~~666.00",
+            "name": "测试一个商品",
+            "jians": "测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品",
+            "commentNo": 1000
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**   商品按销量/热度/价格的分页排序算法
+ *  接口连接  MarketAppMager/go_appMarketSorterByChoose?typeId=?&&idList=?&&tid=?&&num=?&&location=?&&option=?
+ *  接收参数：typeId(商品类型编号),idList(排序类型,值为oo表示正序,值为op表示反序),tid(价格区间,以“~”隔开),
+ 		   num(加载数量),location(加载位置,开始为0,每加载一次num条数据,location值为已加载数量的总和),
+ 		   option(排序种类,值为selNo表示销量,值为price表示价格,值为ifSea表示热度)
+ *  接口功能 :客户端商城推荐栏(单/多个显示的栏目)点击某一个商品拉取该类型商品规定数量商品列表
+ *  返回类型示例:
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appDetail?tid=?
+ *  接收参数：商品编号(tid)
+ *  接口功能:返回商品-属性详情
+ *  返回类型示例:{
+    "message": "success",
+    "body": {
+        "goodToAttribute": "[{\"id\":\"ff8080814d930238014d9304ec3c0002\",\"goodNo\":60,\"price\":10.00,\"memo\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg\",\"selNo\":0,\"goodCode\":\"654654564\",\"state\":1,\"creater\":\"cy\",\"creatTime\":\"May 27, 2015 9:38:02 AM\",\"attributeId\":\"ff8080814d42747b014d427ebd5f000d;ff8080814d42747b014d428086440011\",\"disPrice\":5.00},{\"id\":\"ff8080814d930238014d9304ec3e0003\",\"goodNo\":6,\"price\":666.00,\"memo\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj7tr1m3q1bsj99612l13s.jpeg\",\"selNo\":0,\"goodCode\":\"6548654654\",\"state\":1,\"creater\":\"cy\",\"creatTime\":\"May 27, 2015 9:38:02 AM\",\"attributeId\":\"ff8080814d42747b014d427ebd5f000d;ff8080814d42747b014d4280b9fe0015\",\"disPrice\":66.00}]",
+        "good": "{\"body\":{\"ifSea\":0,\"logo\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg\",\"ifTop\":0,\"state\":1,\"creater\":\"cy\",\"creatTime\":\"2015-05-27 09:38:02\",\"jians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"id\":\"ff8080814d930238014d9304ec250001\",\"selNo\":0,\"ifComment\":1,\"sorter\":10.00,\"name\":\"测试一个商品\",\"merchantName\":\"宁夏中宁枸杞\",\"merchantId\":\"4028b8814c9bb303014c9bb513060001\",\"language\":0,\"photoUrl\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\"}}",
+        "attributeIdToList": "[{\"id\":\"ff8080814d42747b014d4279b9cb0009\",\"ifPhoto\":0,\"level\":2,\"sorter\":0.00,\"name\":\"成色\",\"state\":1,\"selfId\":\"ff8080814d42747b014d4277caba0005\",\"creater\":\"cy\",\"creatTime\":\"May 11, 2015 6:16:23 PM\",\"photoUrl\":\"class\\u003d\\\"pz_verify\"},{\"id\":\"ff8080814d42747b014d4280b9fe0015\",\"ifPhoto\":0,\"level\":3,\"sorter\":0.00,\"name\":\"偏小\",\"state\":1,\"selfId\":\"ff8080814d42747b014d427ba706000b\",\"creater\":\"cy\",\"creatTime\":\"May 11, 2015 6:24:02 PM\",\"photoUrl\":\"class\\u003d\\\"pz_verify\"},{\"id\":\"ff8080814d42747b014d427ebd5f000d\",\"ifPhoto\":0,\"level\":3,\"sorter\":0.00,\"name\":\"鲜红色\",\"state\":1,\"selfId\":\"ff8080814d42747b014d4279b9cb0009\",\"creater\":\"cy\",\"creatTime\":\"May 11, 2015 6:21:51 PM\",\"photoUrl\":\"class\\u003d\\\"pz_verify\"},{\"id\":\"ff8080814d42747b014d428086440011\",\"ifPhoto\":0,\"level\":3,\"sorter\":0.00,\"name\":\"粒大\",\"state\":1,\"selfId\":\"ff8080814d42747b014d427ba706000b\",\"creater\":\"cy\",\"creatTime\":\"May 11, 2015 6:23:48 PM\",\"photoUrl\":\"class\\u003d\\\"pz_verify\"},{\"id\":\"ff8080814d42747b014d427ba706000b\",\"ifPhoto\":0,\"level\":2,\"sorter\":0.00,\"name\":\"颗粒大小\",\"state\":1,\"selfId\":\"ff8080814d42747b014d4277caba0005\",\"creater\":\"cy\",\"creatTime\":\"May 11, 2015 6:18:29 PM\",\"photoUrl\":\"class\\u003d\\\"pz_verify\"}]"
+    },
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appShoppingCar?tid=?&&idList=?&&num=?
+ *  接收参数：用户编号(tid),商品-属性编号(idList),商品数量(num)    
+ *  注：idList为d_good_attribute_good 的主键id,唯一对应goodId和attributeId(这里的attributeId是商品的属性集合Id，以“;”隔开)
+ *  接口功能:客户端添加商品进入购物车
+ *  返回类型示例:{"message":"success","code":0}  添加成功，返回success
+ *        {"message":"null~error","code":0} 添加失败，tid或idList为空
+ *        {"message":"add.exist!","code":-1} 添加失败，已存在
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appShoppingCarEdit?tid=?&&idList=?&&num=?
+ *  接收参数：用户编号(tid),商品-属性编号(idList),商品数量(num)    
+ *  注：一次修改多个：这里idList为多个id(购物车表里的商品-属性编号,即go_appShoppingCarView接口返回的id)的集合,以“;”隔开;num为多个要修改的商品数量集合,以“;”隔开.
+ *     一次修改单个购物车商品：idList和num则不用分割.
+ *  接口功能:客户端修改购物车商品数量
+ *  返回类型示例:{"message":"success","code":0}  添加成功，返回success
+ *        {"message":"null~error","code":0} 添加失败，tid或idList为空
+ *        {"message":"add.exist!","code":-1} 添加失败，已存在
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appShoppingCarView?tid=?
+ *  接收参数：用户编号(tid)
+ *  接口功能:客户端用户预览购物车    
+ *  注：若接口获取不到数据，说明在购物车d_shopping_car找到的商品-属性字段goodId(即表d_good_attribute_good的主键id)，在表d_good_attribute_good查询不到此goodId对应的id
+ *  返回类型示例:{
+    "message": "success",
+    "body": [
+        {
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg",
+            "goodNo": 1,
+            "price": 0.01,
+            "id": "ff8080814d930238014d9304ec3e0003",
+            "goodId": "ff8080814d930238014d9304ec250001",
+            "name": "测试一个商品",
+            "jians": "测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品",
+            "attrList": "鲜红色;偏小"
+        },
+        {
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg",
+            "goodNo": 1,
+            "price": 0.01,
+            "id": "ff8080814d930238014d9304ec420004",
+            "goodId": "ff8080814d930238014d9304ec250001",
+            "name": "测试一个商品",
+            "jians": "测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品",
+            "attrList": "鲜红色;中等"
+        },
+        {
+            "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg",
+            "goodNo": 1,
+            "price": 0.01,
+            "id": "ff8080814d930238014d9304ec3c0002",
+            "goodId": "ff8080814d930238014d9304ec250001",
+            "name": "测试一个商品",
+            "jians": "测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品",
+            "attrList": "鲜红色;粒大"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appShoppingCarDel?tid=?&&idList=?
+ *  接收参数：用户编号(tid),商品编号(idList)
+ *  接口功能:客户端从购物车删除商品
+ *  返回类型示例:{"message":"success","code":0}  删除成功，返回success
+ *        {"message":"null~error","code":0} 删除失败，返回null~error
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appOrderAdd?tid=?&&idList=?&&addessId=?
+ *  接收参数：用户编号(tid),购物车商品-属性编号,goodId集合(idList),收货地址编号(addessId)   
+ *  注：多个goodId以“;”隔开
+ *  接口功能:客户端添加订单
+ *  返回类型示例: {"message":"success","code":0}  添加成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应的用户编号或者购物车订单编号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+  /**
+ *  接口连接  MarketAppMager/go_appOrderPay?tid=?&&num=?
+ *  接收参数：支付订单流水账号(tid),银联/支付宝标示(num,如：al-支付宝  unio-银联)
+ *  接口功能:客户端支付订单
+ *  返回类型示例: {"message":"success","code":0}  支付成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应的支付订单流水账号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appOrderDel?order=?
+ *  接收参数：订单对象(order) 必须包含order.id
+ *  接口功能:客户端删除订单
+ *  返回类型示例: {"message":"success","code":0}  删除成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应编号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appOrderView?tid=?&&option=?
+ *  接收参数：用户编号(tid),订单状态(option)   
+ *	参数说明:option：finish,代表交易已完成;unfinished,代表交易未完成;
+ 				  paid,代表已付款;unpaid,代表未付款;
+ 				  delivered,代表已发货;nondelivery,代表未发货;
+ 				      其余字串,代表查看全部订单.
+ *  接口功能:客户端预览订单
+ *	注：一个用户有多个订单,order0,order1...代表每一个订单,每一个订单可能有多个商品,一个{}包裹一个商品的信息,当{}里没有goodNo属性时,代表当前用户的购物车没有该商品了,则该订单处于未支付/未完成状态.
+ *  返回类型示例:{
+    "message": "success",
+    "body": [
+        {
+            "order": "[{\"goodJians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\",\"goodPrice\":0.01,\"goodName\":\"测试一个商品\",\"payNo\":\"2\"},{\"goodJians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\",\"goodPrice\":0.01,\"goodName\":\"测试一个商品\",\"payNo\":\"2\"}]""orderId": "402881ed4e71fe27014e720ab4aa0000",
+            "payState": "0",
+            "paymentState": "0",
+            "outState": "0"
+        },
+        {
+            "order": "[{\"goodJians\":\"中宁枸杞500g\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1f2p158r1rep1ci3b1p3q.jpeg;\",\"goodPrice\":50.00,\"goodName\":\"中宁枸杞500g\",\"payNo\":\"2\"}]""orderId": "402881ed4e71fe27014e720ab4aa0001",
+            "payState": "0",
+            "paymentState": "0",
+            "outState": "0"
+        },
+        {
+            "order": "[{\"goodJians\":\"绿色蔬菜\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1puj1epq1l911jdf1f213t.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj7tr1m3q1bsj99612l13s.jpeg;\",\"goodPrice\":12.00,\"goodName\":\"有机蔬菜 黄瓜\"}]""orderId": "402881ed4e71fe27014e720ab4aa0003",
+            "payState": "0",
+            "paymentState": "0",
+            "outState": "0"
+        },
+        {
+            "order": "[{\"goodJians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\",\"goodPrice\":0.01,\"goodName\":\"测试一个商品\",\"payNo\":\"2\"},{\"goodJians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\",\"goodPrice\":0.01,\"goodName\":\"测试一个商品\",\"payNo\":\"2\"}]""orderId": "402881ed4e71fe27014e720ab4aa0004",
+            "payState": "0",
+            "paymentState": "0",
+            "outState": "0"
+        },
+        {
+            "order": "[{\"goodJians\":\"中宁枸杞500g\",\"goodPhoto\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1f2p158r1rep1ci3b1p3q.jpeg;\",\"goodPrice\":50.00,\"goodName\":\"中宁枸杞500g\",\"payNo\":\"2\"}]""orderId": "402881ed4e71fe27014e720ab4aa0005",
+            "payState": "0",
+            "paymentState": "0",
+            "outState": "0"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appAddressAdd?address.userId=?&&address.name=?&&address.phone=?&&address.address=?
+ *  接收参数：地址对象(address)  
+                    包括：用户编号(address.userId),
+                    收件人姓名(address.name),
+                    联系方式(address.phone),
+                    地址(address.address)
+ *  接口功能:客户端添加收货地址
+ *  返回类型示例: {"message":"success","code":0}  添加成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应编号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appAddressDel?address.id=?
+ *  接收参数：地址对象(address)  
+                    包括：用户编号(address.id)
+ *  接口功能:客户端删除收货地址
+ *  返回类型示例: {"message":"success","code":0}  删除成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应编号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appAddressEdit?address.id=?&&address.userId=?&&address.name=?&&address.phone=?&&address.address=?
+ *  接收参数：地址对象(address)  
+ *     包括：收货地址编号(address.id),
+                                 用户编号(address.userId),
+                                 收件人姓名(address.name),
+                                 联系方式(address.phone),
+                                 地址(address.address) 
+ *  接口功能:客户端修改收货地址
+ *  返回类型示例: {"message":"success","code":0}  修改成功，返回success
+ *         {"message":"find.unexit","code":0}  没有找到对应编号
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appAddressView?tid=?
+ *  接收参数：用户编号(tid) 
+ *  接口功能:客户端预览所有收货地址
+ *  返回类型示例: [
+    {
+        "id": "402880e54e288b66014e28ae27000017",
+        "phone": "15009666894",
+        "memo": "09516666666",
+        "county": "西夏区",
+        "address": "文昌北街204号",
+        "name": "周庆鹏",
+        "userId": "402880f74dd5e8ed014dd6204da80056",
+        "province": "宁夏",
+        "creatTime": "Jun 25, 2015 11:06:18 AM",
+        "city": "银川市"
+    },
+    {
+        "id": "402880e54e288b66014e28a48a0a0015",
+        "phone": "15009666892",
+        "county": "西夏区",
+        "address": "文昌北街204号",
+        "name": "周庆鹏",
+        "userId": "402880f74dd5e8ed014dd6204da80056",
+        "province": "宁夏",
+        "creatTime": "Jun 25, 2015 10:55:48 AM",
+        "city": "银川市"
+    },
+    {
+        "id": "402880e54e1f857e014e1fd6cc0d002f",
+        "phone": "18395096692",
+        "county": "西夏区",
+        "address": "文昌路",
+        "name": "史湘云",
+        "userId": "402880f74dd5e8ed014dd6204da80056",
+        "province": "宁夏省",
+        "creatTime": "Jun 23, 2015 5:54:07 PM",
+        "city": "银川市"
+    },
+    {
+        "id": "402882e64c9bbc46014c9bbe4df10001",
+        "phone": "18395200702",
+        "county": "西夏区",
+        "address": "北方民族大学",
+        "name": "高振",
+        "userId": "402880f74dd5e8ed014dd6204da80056",
+        "province": "宁夏",
+        "creatTime": "Apr 9, 2015 9:14:42 AM",
+        "city": "银川"
+    }
+]
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCollectAdd?tid=?&&idList=?
+ *  接收参数：用户编号(tid),商品编号(idList)   
+ *  接口功能:客户端添加收藏
+ *  返回类型示例: {"message":"success","code":0}  添加成功，返回success
+ *         {"message":"collection~Exist","code":0}  收藏已存在！
+ *		   {"message":"collection~null","code":0} 用户编号或者商品编号为空！
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCollectDel?tid=?
+ *  接收参数：收藏编号(tid)  多个以“;”隔开
+ *  注：tid为收藏表中的id字段
+ *  接口功能:客户端删除单个收藏
+ *  返回类型示例: {"message":"success","code":0}  删除成功，返回success
+ *         {"message":"del.unknown","code":0  删除失败，没有找到数据
+ *		   {"message":"system.error","code":0} 系统错误
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCollectView?tid=?
+ *  接收参数：用户编号(tid)
+ *  接口功能:客户端所有收藏预览
+ *  返回类型示例: {
+    "message": "success",
+    "body": [
+        {
+            "goodJians": "绿色蔬菜",
+            "goodLogo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1puj1epq1l911jdf1f213t.jpeg",
+            "collectionId": "402880f94dad1fea014dad2012c10001",
+            "collectionTypes": 0,
+            "goodId": "402880f74d9d4bcd014d9d5535ce0015",
+            "goodName": "有机蔬菜 黄瓜",
+            "collectionState": 1,
+            "creatTime":"2015-05-26"
+        },
+        {
+            "goodJians": "绿色蔬菜",
+            "goodLogo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1puj1epq1l911jdf1f213t.jpeg",
+            "collectionId": "402880f94dad438c014dad4409940001",
+            "collectionTypes": 0,
+            "goodId": "402880f74d9d4bcd014d9d5553db001d",
+            "goodName": "有机蔬菜 黄瓜",
+            "collectionState": 1,
+            "creatTime":"2015-05-26"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCollectViewOne?idList=?
+ *  接收参数：商品编号(idList)   
+ *  接口功能:客户端查看单个收藏详情
+ *  返回类型示例: {
+    "message": "success",
+    "body": {
+        "good": "[{\"ifSea\":0,\"logo\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg\",\"ifTop\":0,\"state\":1,\"creater\":\"cy\",\"creatTime\":\"2015-05-27 09:38:02\",\"jians\":\"测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品测试一个商品\",\"id\":\"ff8080814d930238014d9304ec250001\",\"selNo\":0,\"ifComment\":1,\"sorter\":10.00,\"name\":\"测试一个商品\",\"merchantName\":\"宁夏中宁枸杞\",\"merchantId\":\"4028b8814c9bb303014c9bb513060001\",\"language\":0,\"photoUrl\":\"http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj1hs8fo8v2l1euti9a3r.jpeg;http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19lob54cj6ngt4ik4i1s9r9fi3p.jpeg;\"}]"
+    },
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appAdvertisement?option=?
+ *  接收参数：广告类型(option)   option:culture,代表文化栏广告;travel,代表旅游栏广告;market,代表商城
+ *  接口功能:发送客户端广告栏图片  (注：默认发送5个广告图片，广告图片依据时间先后排序)
+ *  返回类型示例: {
+    "message": "success",
+    "body": [
+        {
+            "id": 51,
+            "slUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19ntrsang11vb1dja1iatr4i44gi.png?imageView2/1/w/100/h/100"
+        },
+        {
+            "id": 50,
+            "slUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19ntrq11m130satrmakph01eiia.png?imageView2/1/w/100/h/100"
+        },
+        {
+            "id": 49,
+            "slUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19ntrn9u61u26b9v1rqv9ti1v2mk.png?imageView2/1/w/100/h/100"
+        },
+        {
+            "id": 48,
+            "slUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nr0hooi1fgr10ul5uj4nf10pve.png?imageView2/1/w/100/h/100"
+        },
+        {
+            "id": 47,
+            "slUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nr0hooitb2128h1sg63ln17pod.png?imageView2/1/w/100/h/100"
+        }
+    ],
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCultureView
+ *  接收参数：无  
+ *  接口功能:发送客户端文化列表  
+ *  返回类型示例: {
+    "message": "success",
+    "body": {
+        "nullTs": "",
+        "voList": "[{\"ifBefore\":1,\"mediaUrl\":\"\",\"typesList\":\";文化;\",\"ifTop\":1,\"state\":1,\"creater\":\"cy\",\"creatTime\":\"Jul 7, 2015 12:07:40 PM\",\"docKeys\":\"丝绸之路，并不是一条单一的道路！\",\"clickNo\":0,\"id\":\"402881eb4e66a316014e66b2a67d000e\",\"content\":\"\\u003cspan style\\u003d\\\"color:#333333;font-family:arial, 宋体, sans-serif;font-size:14px;line-height:24px;background-color:#FFFFFF;\\\"\\u003e丝绸之路，并不是一条单一的道路，而是指中国与世界其它地区之间贯穿古今的海上和陆上通商以及文化交流的区域。中国的丝绸、瓷器、陶器、茶叶等大量珍贵产品和科学文化，除通过横贯大陆的陆上交通线路大量输往中亚、西亚和非洲、欧洲之外，也通过海上源源不断地销往东亚、大洋洲、美洲和世界各地。因此，学界习惯于将这些陆上与海上的交通路线区域称之为“丝绸之路”。海上的称“海上丝绸之路”，陆上的称“陆上丝绸之路。”而沿这些丝路所传播和衍生的文化则被称之为“丝路文化”。——\\u003c/span\\u003e\\u003ca target\\u003d\\\"_blank\\\" href\\u003d\\\"http://baike.baidu.com/view/1028241.htm\\\"\\u003e李二和\\u003c/a\\u003e\\u003cspan style\\u003d\\\"color:#333333;font-family:arial, 宋体, sans-serif;font-size:14px;line-height:24px;background-color:#FFFFFF;\\\"\\u003e《\\u003c/span\\u003e\\u003ca target\\u003d\\\"_blank\\\" href\\u003d\\\"http://baike.baidu.com/subview/8076930/7987045.htm\\\"\\u003e海上七千年\\u003c/a\\u003e\\u003cspan style\\u003d\\\"color:#333333;font-family:arial, 宋体, sans-serif;font-size:14px;line-height:24px;background-color:#FFFFFF;\\\"\\u003e》\\u003c/span\\u003e\",\"author\":\"方硕IT\",\"sorter\":10.00,\"name\":\"丝路文化\",\"typesIdList\":\";402881eb4e66a316014e66a87cea0005;\",\"photoUrl\":\"upload/editor/_a246f701-8d30-48d0-8afa-ad167a5a8ea9.jpg\"}]",
+        "pageSize": 15,
+        "nowPage": 1,
+        "totalRecord": 1,
+        "totalPage": 1
+    },
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appCultureClick?tid=?
+ *  接收参数：文化id(tid)  即：voList里面一条数据的id
+ *  接口功能:客户端点击一条文化 ,记录点击数+1
+ *  返回类型示例: {
+    "message": "success",
+    "code": 0
+}
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appSearch
+ *  接收参数：搜索关键字(option)
+ *  接口功能:发送客户端搜索信息     memo:价格 , reservation：折扣价格
+ *  返回类型示例: [
+    {
+        "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nb0f5kav97135710kuukm1l32a.jpg",
+        "memo": "439.00",
+        "ifTop": 1,
+        "state": 1,
+        "creatTime": "",
+        "jians": "男士立领外套 2015春装新款商务休闲jacket 正品男装",
+        "id": "402880f94dd5f227014dd6401b6600bb",
+        "selNo": 0,
+        "sorter": 10,
+        "reservation": "350.00",
+        "name": "七匹狼夹克",
+        "language": 0,
+        "photoUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nb0f5kav97135710kuukm1l32a.jpg;"
+    },
+    {
+        "logo": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nb4d80u1q8abm01lkscihhi7a.jpg",
+        "memo": "419.00",
+        "ifTop": 1,
+        "state": 1,
+        "creatTime": "",
+        "jians": "正品男装茄克衫 春装新款jacket 2130",
+        "id": "402880f94dd5f227014dd649a87b00f1",
+        "selNo": 0,
+        "sorter": 14,
+        "reservation": "386.00",
+        "name": "七匹狼男士双面外套",
+        "language": 0,
+        "photoUrl": "http://7xi7ke.com2.z0.glb.qiniucdn.com/img/o_19nb4d80u1q8abm01lkscihhi7a.jpg;"
+    }
+]
+ */
+ 
+ /**
+ *  接口连接  MarketAppMager/go_appGetTypeIdList
+ *  接收参数：无
+ *  接口功能:发送客户端类型ID-类型名Name
+ *  返回类型示例:{
+    "message": "success",
+    "body": [
+        {
+            "id": "297e5c764cbfeb31014cc06984710004",
+            "name": "精品服装"
+        },
+        {
+            "id": "297e5c764cbfeb31014cc069d95d0006",
+            "name": "电子产品"
+        },
+        {
+            "id": "402880eb4d9994aa014d999c8f830001",
+            "name": "每日推荐"
+        },
+        {
+            "id": "402880eb4d9d4efc014d9d50f52e0001",
+            "name": "每日特卖"
+        },
+        {
+            "id": "402880ee4e2e7ecf014e2f1c78770013",
+            "name": "旅游景点"
+        },
+        {
+            "id": "402880ee4e2e7ecf014e2f53126c0019",
+            "name": "西域特色"
+        },
+        {
+            "id": "402880f94dd23365014dd238605d0005",
+            "name": "每日折扣"
+        },
+        {
+            "id": "402880f94dd23365014dd238c81c0007",
+            "name": "新品推荐"
+        },
+        {
+            "id": "402880f94dd5d11c014dd5e49b170001",
+            "name": "独家推荐"
+        },
+        {
+            "id": "402880f94dd5d11c014dd5e4ed7c0003",
+            "name": "旅游向导"
+        },
+        {
+            "id": "402880f94dd5d11c014dd5e53e300005",
+            "name": "更多推荐"
+        },
+        {
+            "id": "402880f94dd5f227014dd66149e70173",
+            "name": "生活用品"
+        },
+        {
+            "id": "402880f94dd7833a014dd793e4de0003",
+            "name": "特产推荐"
+        },
+        {
+            "id": "ff8080814d417e75014d41a042180003",
+            "name": "绿色食品"
+        }
+    ],
+    "code": 0
+}
+ */

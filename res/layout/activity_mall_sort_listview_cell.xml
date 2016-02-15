@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:background="@drawable/bg_activity_sort_cell"
+    android:orientation="horizontal" >
+
+    <View
+        android:id="@+id/view_activity_mall_sort_listview_cell"
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"
+        android:background="#368ff7" />
+
+    <TextView
+        android:id="@+id/tv_activity_mall_sort_listview_cell"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="12dp"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:layout_height="fill_parent" />
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="fill_parent"
+        android:src="@drawable/zy_jiantou" />
+
+</LinearLayout>

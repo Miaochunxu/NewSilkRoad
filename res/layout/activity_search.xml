@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#74bbf1" >
+
+        <EditText
+            android:id="@+id/ed_search_context"
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/autocompletetextview_style"
+            android:gravity="center"
+            android:hint="@string/_search"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <ImageView
+            android:id="@+id/img_search_search"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignRight="@id/ed_search_context"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/ima_sousuotubiao" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/_history" />
+
+    <ListView
+        android:id="@+id/lv_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+        android:listSelector="#74bbf1"
+        android:scrollbars="none" >
+    </ListView>
+
+    <TextView
+        android:id="@+id/activity_search_detele"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:background="#74bbf1"
+        android:gravity="center"
+        android:text="清空记录"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
+</LinearLayout>

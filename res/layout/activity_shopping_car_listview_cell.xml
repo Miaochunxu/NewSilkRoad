@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="90dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginRight="6dp"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/cb_activity_shopping_car_listview_cell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:button="@drawable/checkbox"
+            android:checked="false" />
+
+        <ImageView
+            android:id="@+id/img_activity_shopping_car_listview_cell"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2.5dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_activity_shopping_car_listview_cell_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="marquee"
+                android:lines="1"
+                android:paddingLeft="1dp"
+                android:textColor="#312e2e"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_activity_shopping_car_listview_cell_type"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:paddingLeft="1dp"
+                android:textColor="#686868"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:text="@string/_order_activity_goods_type"
+                    android:textColor="#989898"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_shopping_car_listview_cell_attribute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="#989898"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content"
+                    android:text="￥ "
+                    android:textColor="#e24553"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_shopping_car_listview_cell_money"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#e24553"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="#312e2e"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_shopping_car_listview_cell_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:textColor="#312e2e"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ly_activity_shopping_car_none"
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="128dp"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/img_shopping_car_jiahao"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/btn_jiahao" />
+
+        <TextView
+            android:id="@+id/tv_activity_shopping_car_listview_cell_number_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/img_shopping_car_jianhao"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/btn_jianhao" />
+
+        <TextView
+            android:id="@+id/tv_shopping_car_delete"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="#368ff7"
+            android:gravity="center"
+            android:text="@string/_delete"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

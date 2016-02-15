@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/ima_zhucebg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/nav_back_while" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/tabar_logo" />
+
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ima_zcshoujihao" />
+
+                <View
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/edittext_img" />
+
+                <EditText
+                    android:id="@+id/et_register_name"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:inputType="text"
+                    android:paddingLeft="5dp" >
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp" >
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/exz" />
+
+                <View
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/edittext_img" />
+
+                <EditText
+                    android:id="@+id/et_register_nickname"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="10"
+                    android:hint="@string/_register_nickname"
+                    android:inputType="text"
+                    android:paddingLeft="5dp" >
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ima_zcmima" />
+
+                <View
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/edittext_img" />
+
+                <EditText
+                    android:id="@+id/et_register_pasw"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="12"
+                    android:hint="@string/_activity_login_exit_pas"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp" >
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="270dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp" >
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/ima_zcmima" />
+
+                <View
+                    android:layout_width="55dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/edittext_img" />
+
+                <EditText
+                    android:id="@+id/et_register_paswagain"
+                    android:layout_width="210dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_edittext"
+                    android:ems="12"
+                    android:hint="@string/_register_edit_pasagain"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp" >
+                </EditText>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal" >
+
+                <CheckBox
+                    android:id="@+id/chb_register_read"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/checkbox"
+                    android:checked="false"
+                    android:text="@string/_check_text"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_check_right_text"
+                    android:textColor="#ff0000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_register_regist"
+                android:layout_width="270dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_bg_login"
+                android:text="@string/_login_regist"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="40.5dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_activity_sort_goods_classify_listview_cell"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="aa"
+        android:textColor="#525252"
+        android:textSize="18sp" />
+
+   <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#e9e9e9" />
+
+</LinearLayout>

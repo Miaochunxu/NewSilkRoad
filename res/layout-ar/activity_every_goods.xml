@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="49.5dp"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@+id/img_activity_every_goods_back"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/nav_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/_info_details"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/img_activity_every_goods_shopping_car"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/btn_gouwuchaicon" />
+    </RelativeLayout>
+
+    <com.fangshuoit.view.NewCustomScrollView
+        android:id="@+id/new_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="45dp"
+        android:layout_marginTop="49.5dp"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.ab.view.sliding.AbSlidingPlayView
+                android:id="@+id/mySlidingPlayView"
+                android:layout_width="fill_parent"
+                android:layout_height="240dp" >
+            </com.ab.view.sliding.AbSlidingPlayView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/activity_every_goods_goodsname"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/activity_every_goods_goodjians"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center_vertical"
+                    android:lineSpacingMultiplier="1.1"
+                    android:textColor="@color/small_title"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="#e6e6e6" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="80dp" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="15dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_price_yuan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        android:text="100"
+                        android:textColor="#525252"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/_prime_cost"
+                        android:textColor="#525252"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:text="￥"
+                        android:textColor="#f15087"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="5dp"
+                        android:text="100"
+                        android:textColor="#f15087"
+                        android:textSize="25sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_allcomment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingRight="15dp"
+                        android:text="@string/_total_judge"
+                        android:textColor="#525252"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_allsales"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingRight="15dp"
+                        android:text="@string/_Total_sales"
+                        android:textColor="#525252"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="8dp"
+                android:background="#e6e6e6" />
+
+            <LinearLayout
+                android:id="@+id/ly_activity_every_goods_look_sort"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/zy_jiantou_left" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/_view_sort"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/btn_queren" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:background="#e6e6e6" />
+
+            <LinearLayout
+                android:id="@+id/ly_activity_every_goods_look_details"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/zy_jiantou_left" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/_view_content_detail"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/btn_queren" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="15dp"
+                android:background="#e6e6e6" />
+
+            <LinearLayout
+                android:id="@+id/ly_activity_every_goods_comment"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/zy_jiantou_left" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/_user_judge"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/btn_queren" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="#e6e6e6" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_activity_every_goods_comment_null"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/_comments_bull" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_comment_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:ellipsize="marquee"
+                        android:gravity="center_vertical"
+                        android:lines="1"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="10dp"
+                        android:textColor="#525252"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_activity_every_goods_comment_name"
+                        android:layout_width="180dp"
+                        android:layout_height="fill_parent"
+                        android:gravity="center_vertical"
+                        android:textColor="#525252"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_activity_every_goods_comment_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical"
+                    android:lineSpacingMultiplier="1.0"
+                    android:lines="2"
+                    android:textColor="#525252"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_activity_every_goods_comment_create_time"
+                    android:layout_width="fill_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:textColor="#525252"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.fangshuoit.view.NewCustomScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_activity_everygoods_runto_car"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#49b5f9"
+            android:gravity="center"
+            android:text="@string/_shopping_cart"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/img_collection"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            android:src="@drawable/collection02" />
+
+        <TextView
+            android:id="@+id/tv_activity_everygoods_buynow"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="#368ff7"
+            android:gravity="center"
+            android:text="@string/_buy_now"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</RelativeLayout>
